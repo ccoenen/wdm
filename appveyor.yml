@@ -1,0 +1,27 @@
+---
+version: '{build}'
+
+skip_tags: true
+
+environment:
+  matrix:
+    - ruby_version: "193"
+    - ruby_version: "200"
+    - ruby_version: "200-x64"
+    - ruby_version: "21"
+    - ruby_version: "21-x64"
+    - ruby_version: "22"
+    - ruby_version: "22-x64"
+
+install:
+  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - C:\Ruby%ruby_version%\DevKit\devkitvars.bat
+  - gem install bundler --no-document
+  - bundler env
+  - bundle install --retry=3
+
+test_script:
+  - bundle exec rake compile
+  - bundle exec rake spec
+
+build: off
