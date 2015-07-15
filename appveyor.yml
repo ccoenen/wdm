@@ -1,3 +1,4 @@
+---
 version: '{build}'
 
 skip_tags: true
@@ -11,6 +12,7 @@ environment:
 
 install:
   - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - C:\Ruby%ruby_version%\DevKit\devkitvars.bat
   - echo %path%
   - dir C:\
   - dir C:\Ruby%ruby_version%\
