@@ -11,7 +11,13 @@ environment:
 
 install:
   - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - echo %path%
+  - dir C:\
+  - dir C:\Ruby%ruby_version%\
   - gem install bundler --no-document
+  - ruby --version
+  - gem --version
+  - gem env
   - bundle install --retry=3
 
 test_script:
