@@ -23,7 +23,7 @@ environment:
 install:
   - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
   - "%devkit%\\devkitvars.bat"
-  - gem install bundler --no-document
+  - gem install bundler --no-rdoc --no-ri
   - bundler env
   - bundle install --retry=3
 
