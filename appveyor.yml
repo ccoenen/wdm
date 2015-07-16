@@ -6,16 +6,23 @@ skip_tags: true
 environment:
   matrix:
     - ruby_version: "193"
+      devkit: C:\Ruby193\DevKit
     - ruby_version: "200"
+      devkit: C:\Ruby21\DevKit
     - ruby_version: "200-x64"
+      devkit: C:\Ruby21-x64\DevKit
     - ruby_version: "21"
+      devkit: C:\Ruby21\DevKit
     - ruby_version: "21-x64"
+      devkit: C:\Ruby21-x64\DevKit
     - ruby_version: "22"
+      devkit: C:\Ruby21\DevKit
     - ruby_version: "22-x64"
+      devkit: C:\Ruby21-x64\DevKit
 
 install:
   - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
-  - C:\Ruby%ruby_version%\DevKit\devkitvars.bat
+  - "%devkit%\\devkitvars.bat"
   - gem install bundler --no-document
   - bundler env
   - bundle install --retry=3
